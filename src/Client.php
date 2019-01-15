@@ -243,6 +243,7 @@ class Client
     {
         $headers   = [];
         $headers[] = 'Accept: application/json';
+        $headers[] = 'Content-type: application/json';
 
         if ($auth) {
             $headers[] = 'Authorization: Bearer ' . $this->getAccessToken();
@@ -267,11 +268,11 @@ class Client
         switch ($method) {
             case 'PUT':
                 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-                curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($params));
+                curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($params));
                 break;
             case 'POST':
                 curl_setopt($ch, CURLOPT_POST, count($params));
-                curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($params));
+                curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($params));
                 break;
             case 'DELETE':
                 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
