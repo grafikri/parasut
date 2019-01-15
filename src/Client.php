@@ -31,7 +31,7 @@ class Client
      *
      * @return string
      */
-    const API_URL = 'https://api.parasut.com/v1';
+    const API_URL = 'https://api.parasut.com/v4';
 
     /**
      * The oAuth token url.
