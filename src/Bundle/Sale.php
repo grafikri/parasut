@@ -48,9 +48,7 @@ class Sale extends Bundle
      */
     public function create(array $params)
     {
-        return $this->client->call("sales_invoices", [
-            'sales_invoice' => $params,
-        ], 'POST');
+        return $this->client->call("sales_invoices", $params, 'POST');
     }
 
     /**

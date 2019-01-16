@@ -46,9 +46,7 @@ class Contact extends Bundle
      */
     public function create(array $params)
     {
-        return $this->client->call("contacts", [
-            'contact' => $params
-        ], 'POST');
+        return $this->client->call("contacts", $params, 'POST');
     }
 
     /**
