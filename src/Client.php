@@ -67,6 +67,8 @@ class Client
         'product'  => Bundle\Product::class,
         'purchase' => Bundle\Purchase::class,
         'sale'     => Bundle\Sale::class,
+        'earsiv'     => Bundle\Earsiv::class,
+        'trackablejob'     => Bundle\Trackable::class,
     ];
 
     /**
