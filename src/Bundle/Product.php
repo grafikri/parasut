@@ -33,8 +33,8 @@ class Product extends Bundle
     public function get($page = 1, $limit = 25)
     {
         return $this->client->call("products", [
-            'page' => $page,
-            'per_page' => $limit
+            'number' => $page,
+            'size' => $limit
         ], 'GET');
     }
 

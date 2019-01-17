@@ -31,7 +31,7 @@ class Client
      *
      * @return string
      */
-    const API_URL = 'https://api.parasut.com/v1';
+    const API_URL = 'https://api.parasut.com/v4';
 
     /**
      * The oAuth token url.
@@ -67,6 +67,8 @@ class Client
         'product'  => Bundle\Product::class,
         'purchase' => Bundle\Purchase::class,
         'sale'     => Bundle\Sale::class,
+        'earsiv'     => Bundle\Earsiv::class,
+        'trackablejob'     => Bundle\Trackable::class,
     ];
 
     /**
@@ -243,6 +245,7 @@ class Client
     {
         $headers   = [];
         $headers[] = 'Accept: application/json';
+        $headers[] = 'Content-type: application/json';
 
         if ($auth) {
             $headers[] = 'Authorization: Bearer ' . $this->getAccessToken();
@@ -267,11 +270,11 @@ class Client
         switch ($method) {
             case 'PUT':
                 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-                curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($params));
+                curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($params));
                 break;
             case 'POST':
                 curl_setopt($ch, CURLOPT_POST, count($params));
-                curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($params));
+                curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($params));
                 break;
             case 'DELETE':
                 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
