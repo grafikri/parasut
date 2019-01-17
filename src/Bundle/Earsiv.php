@@ -3,7 +3,7 @@
 /*
  * This file is part of Parasut.
  *
- * (c) Sercan Çakır <srcnckr@gmail.com>
+ * (c) Created by Serhan Coşkun
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -17,11 +17,11 @@ use Parasut\Bundle;
  * Contact
  *
  * @package   Parasut
- * @author    Sercan Çakır <srcnckr@gmail.com>
+ * @author    Serhan Coşkun
  * @license   MIT License
  * @copyright 2015
  */
-class Contact extends Bundle
+class Earsiv extends Bundle
 {
     /**
      * Retrieve all contacts with pagination.
@@ -46,7 +46,7 @@ class Contact extends Bundle
      */
     public function create(array $params)
     {
-        return $this->client->call("contacts", $params, 'POST');
+        return $this->client->call("e_archives", $params, 'POST');
     }
 
     /**
